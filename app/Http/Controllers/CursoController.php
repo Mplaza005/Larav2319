@@ -9,8 +9,9 @@ class CursoController extends Controller
 {
     public function index(){
         
-        return"hola";
-      //  return view('cursos.index');
+      $cursos =  Curso::orderBy('id', 'desc')->get();
+      return view('cursos.listarcurso', compact('cursos'));
+
     }
 
 
@@ -33,10 +34,18 @@ class CursoController extends Controller
    
     }
 
-    public function show($curso){
-        // return view('cursos.show',['pedro'=>$curso]);
+    public function show(Curso $curso){
+       // $temp=Curso::find($curso);
+       return view('cursos.show',compact('curso'));
+    }
 
-        return view('cursos.show',compact('curso'));
+    public function destroy (Curso $curso){
+     
+      return "hola desde destroy";
+     
+      // $curso->delete();
+     // return redirect()->route('cursos.index');
+      
     }
 
 

@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',HomeController::class);
 
-Route::get('cursos', [CursoController::class,'index']);
-
+Route::get('cursos', [CursoController::class,'index'])->name('cursos.index');
 Route::post('cursos', [CursoController::class,'store'])->name('cursos.store');
-
 Route::get('cursos/create',[CursoController::class,'create']);
-
-// Route::get('cursos/{curso}', [CursoController::class,'show']);
+Route::delete('curso/{curso}', [CursoController::class,'destroy'])->name('curso.destroy');
+Route::get('cursos/{curso}', [CursoController::class,'show'])->name('curso.show');
