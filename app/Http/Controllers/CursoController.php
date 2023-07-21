@@ -40,11 +40,8 @@ class CursoController extends Controller
     }
 
     public function destroy (Curso $curso){
-     
-      return "hola desde destroy";
-     
-      // $curso->delete();
-     // return redirect()->route('cursos.index');
+     $curso->delete();
+     return redirect()->route('cursos.index');
       
     }
 

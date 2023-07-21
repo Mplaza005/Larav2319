@@ -25,7 +25,19 @@
               <td>{{$curso->urlPdf}}</td>
               
               <td><a href="{{route('curso.show',$curso->id)}}">Detalle</a></td>
-              <td><a href="{{route('curso.destroy',$curso->id)}}">Eliminar</a></td>
+             <td>
+                <form method="post" action="{{route('curso.destroy',$curso->id)}}">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+             </td>
+         
+             
+             
+              {{-- <td><a href="{{route('curso.destroy',$curso->id)}}">Eliminar</a></td> --}}
+              
+
           </tr>
       @endforeach
     </tbody>
