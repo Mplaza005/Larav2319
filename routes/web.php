@@ -24,4 +24,4 @@ Route::post('cursos', [CursoController::class,'store'])->name('cursos.store');
 
 Route::get('cursos/create',[CursoController::class,'create']);
 
-Route::get('cursos/{curso}', [CursoController::class,'show']);
+// Route::get('cursos/{curso}', [CursoController::class,'show']);

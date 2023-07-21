@@ -8,7 +8,9 @@ use App\Models\Curso;
 class CursoController extends Controller
 {
     public function index(){
-        return view('cursos.index');
+        
+        return"hola";
+      //  return view('cursos.index');
     }
 
 
@@ -20,10 +22,15 @@ class CursoController extends Controller
     public function store(Request $request){
         
       $curso=new Curso();
-      $curso->name=$request->name;
+       $curso->name=$request->name;
       $curso->descripcion=$request->descripcion;
-      $curso->save();  
-
+      //ADJUNTAR EL PDF
+      $file=$request->file("urlPdf");
+      $nombreArchivo = "pdf_".time().".".$file->guessExtension();
+      $request->file('urlPdf')->storeAs('public/imagenes', $nombreArchivo );
+      $curso->urlPdf = $nombreArchivo;
+      $curso->save();
+   
     }
 
     public function show($curso){
