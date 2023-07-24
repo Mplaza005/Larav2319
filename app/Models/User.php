@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    public function profile(){
+       // $profile = Profile::where('user_id',$this->id)->first();
+       // $profile = Profile::where('foreing_key',$this->local_key)->first();
+       return $this->hasOne('App\Models\Profile'); 
+
+    }
+
+
 }
