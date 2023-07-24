@@ -42,12 +42,17 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
+    //  Relacion Uno A Uno
     public function profile(){
        // $profile = Profile::where('user_id',$this->id)->first();
        // $profile = Profile::where('foreing_key',$this->local_key)->first();
        return $this->hasOne('App\Models\Profile'); 
 
+    }
+
+    // Relacion Uno a Muchos 
+       public function posts(){
+        return $this->hasMany('App\Models\post');
     }
 
 
